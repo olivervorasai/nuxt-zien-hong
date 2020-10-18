@@ -40,6 +40,7 @@
           :to="item.to"
           class="white--text"
           color="transparent"
+          :aria-label="item.title"
           exact
           depressed
           nuxt

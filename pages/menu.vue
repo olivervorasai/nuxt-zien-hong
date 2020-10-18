@@ -5,6 +5,7 @@
         :to="'/menu'"
         class="white--text"
         color="deep-orange"
+        aria-label="Menu"
         exact
         depressed
         nuxt
@@ -15,6 +16,7 @@
       <v-btn
         :to="'/menu/luncheon'"
         color="deep-orange"
+        aria-label="Lunch Special"
         exact
         outlined
         nuxt
