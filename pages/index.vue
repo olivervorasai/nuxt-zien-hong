@@ -45,6 +45,7 @@
           alt="Order Food Delivery with DoorDash"
           title="Order Food Delivery with DoorDash"
           style="text-decoration: none"
+          rel="noopener"
           ><div
             style="
               position: relative;
@@ -65,6 +66,7 @@
           target="_blank"
           alt="Order Food Deliver with Postmates"
           title="Order Food Deliver with Postmates"
+          rel="noopener"
         >
           <img
             src="https://postmates.com/assets/badges/pm-black-order-2.png"
