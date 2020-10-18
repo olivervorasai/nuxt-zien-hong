@@ -1,3 +1,8 @@
+const strapiBaseUri =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:1337/'
+    : 'https://zien-hong-strapi.herokuapp.com/'
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -9,7 +14,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Zien Hong restaurant offers huge portions of traditional Chinese fare in a compact dining room.' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Zien Hong restaurant offers huge portions of traditional Chinese fare in a compact dining room.',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -32,7 +42,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxtjs/strapi'],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
@@ -42,8 +52,17 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 
-  env:
-    process.env.NODE_ENV === 'development'
-      ? { cmsUrl: 'http://localhost:1337/categories' }
-      : { cmsUrl: 'https://zien-hong-strapi.herokuapp.com/categories' },
+  env: {
+    strapiBaseUri,
+  },
+
+  strapi: {
+    url: strapiBaseUri,
+    entities: [
+      {
+        name: 'categories',
+        type: 'collection',
+      },
+    ],
+  },
 }

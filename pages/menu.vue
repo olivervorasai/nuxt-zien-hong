@@ -44,15 +44,13 @@ export default {
   },
   methods: {
     getCategories() {
-      fetch(process.env.cmsUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          this.allCategories = data
-          this.sortMenuItems(this.allCategories)
-          this.menuCategories = this.allCategories.slice(1)
-          this.lunchCategories = this.allCategories.slice(0, 1)
-          this.categories = this.menuCategories
-        })
+      this.$strapi.find('categories').then((data) => {
+        this.allCategories = data
+        this.sortMenuItems(this.allCategories)
+        this.menuCategories = this.allCategories.slice(1)
+        this.lunchCategories = this.allCategories.slice(0, 1)
+        this.categories = this.menuCategories
+      })
     },
     sortMenuItems(categories) {
       categories.forEach((category) => {
