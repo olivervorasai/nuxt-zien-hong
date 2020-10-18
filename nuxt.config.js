@@ -29,7 +29,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Commissioner&display=swap',
+          'https://fonts.googleapis.com/css?family=Commissioner:100,300,400,500,700,900&display=swap',
       },
     ],
   },
@@ -62,6 +62,7 @@ export default {
       font: {
         family: 'Commissioner',
       },
+      icons: false,
     },
   },
 
