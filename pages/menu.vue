@@ -2,63 +2,46 @@
   <v-container>
     <v-row justify="center">
       <v-btn
-        depressed
-        color="deep-orange"
+        :to="'/menu'"
         class="white--text"
-        data-type="menu"
+        color="deep-orange"
+        exact
+        depressed
+        nuxt
         @click="setActiveCategory"
       >
         Menu
       </v-btn>
       <v-btn
-        outlined
+        :to="'/menu/luncheon'"
         color="deep-orange"
-        data-type="lunch"
+        exact
+        outlined
+        nuxt
         @click="setActiveCategory"
       >
         Lunch Special
       </v-btn>
     </v-row>
-    <menu-listing class="menu-listing" :categories="categories" />
+    <nuxt-child :categories="categories" />
   </v-container>
 </template>
 
 <script>
-import MenuListing from '../components/MenuListing.vue'
-
 export default {
-  name: 'Menu',
-  components: {
-    MenuListing,
-  },
-  data() {
+  async asyncData({ $strapi }) {
     return {
-      allCategories: [],
-      menuCategories: [],
-      lunchCategories: [],
-      categories: [],
+      categories: await $strapi.find('categories').then((res) => {
+        res.forEach((category) => {
+          category.menu_items.sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, { numeric: true })
+          )
+        })
+        return res
+      }),
     }
   },
-  beforeMount() {
-    this.getCategories()
-  },
   methods: {
-    getCategories() {
-      this.$strapi.find('categories').then((data) => {
-        this.allCategories = data
-        this.sortMenuItems(this.allCategories)
-        this.menuCategories = this.allCategories.slice(1)
-        this.lunchCategories = this.allCategories.slice(0, 1)
-        this.categories = this.menuCategories
-      })
-    },
-    sortMenuItems(categories) {
-      categories.forEach((category) => {
-        category.menu_items.sort((a, b) =>
-          a.name.localeCompare(b.name, undefined, { numeric: true })
-        )
-      })
-    },
     setActiveCategory(e) {
       // Vuetify button classes that define normal/outlined buttons
       const active = ['deep-orange', 'white--text']
@@ -66,7 +49,6 @@ export default {
 
       const target =
         e.target.tagName === 'SPAN' ? e.target.parentElement : e.target
-      const cType = target.dataset.type
       const buttons = target.parentElement.children
 
       // Change classes for all buttons
@@ -79,22 +61,6 @@ export default {
           element.classList.remove(...active)
         }
       })
-
-      // Update prop of menu
-      switch (cType) {
-        case 'menu':
-          this.categories = this.menuCategories
-          break
-        case 'lunch':
-          this.categories = this.lunchCategories
-          break
-      }
-
-      if (cType === 'menu') {
-        this.categories = this.menuCategories
-      } else if (cType === 'lunch') {
-        this.categories = this.lunchCategories
-      }
     },
   },
 }

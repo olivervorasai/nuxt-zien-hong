@@ -2,8 +2,7 @@
   <v-container>
     <div v-for="category in categories" :key="category.id">
       <h2>{{ category.name }}</h2>
-      <!-- If statement performed before next for loop for performance, find way to do this without repeating code? -->
-      <div v-if="category.name === 'Luncheon'" class="items-container">
+      <div class="items-container">
         <div v-for="item in category.menu_items" :key="item.id" class="item">
           <div class="item-left">
             <div>
@@ -13,35 +12,15 @@
             <div class="item-content">{{ item.chinese_name }}</div>
             <div class="item-content">{{ item.description }}</div>
             <div class="item-price">
-              <strong
-                >${{ item.special_price.toFixed(2)
-                }}<span v-if="item.large_price">
-                  / ${{ item.large_price.toFixed(2) }}</span
-                ></strong
-              >
-            </div>
-          </div>
-          <div v-if="item.spicy" class="item-spicy">
-            <v-icon color="red">{{ mdiChiliMild }}</v-icon>
-          </div>
-        </div>
-      </div>
-      <div v-else class="items-container">
-        <div v-for="item in category.menu_items" :key="item.id" class="item">
-          <div class="item-left">
-            <div>
-              <strong>{{ item.name }}</strong>
-            </div>
-            <div class="item-content">{{ item.vietnamese_name }}</div>
-            <div class="item-content">{{ item.chinese_name }}</div>
-            <div class="item-content">{{ item.description }}</div>
-            <div class="item-price">
-              <strong
-                >${{ item.base_price.toFixed(2)
-                }}<span v-if="item.large_price">
-                  / ${{ item.large_price.toFixed(2) }}</span
-                ></strong
-              >
+              <strong>
+                <span v-if="category.name === 'Luncheon'"
+                  >${{ item.special_price.toFixed(2) }}</span
+                >
+                <span v-else>${{ item.base_price.toFixed(2) }}</span>
+                <span v-if="item.large_price"
+                  >/ ${{ item.large_price.toFixed(2) }}</span
+                >
+              </strong>
             </div>
           </div>
           <div v-if="item.spicy" class="item-spicy">
