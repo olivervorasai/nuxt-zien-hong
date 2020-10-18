@@ -29,7 +29,7 @@
           <p>We appreciate your support and continued business.</p>
           <p>Best regards,</p>
           <div class="text-xs-right">
-            <em><small>&mdash; Zien Hong Management</small></em>
+            <em>&mdash; Zien Hong Management</em>
           </div>
         </v-card-text>
       </v-card>

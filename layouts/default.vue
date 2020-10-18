@@ -25,7 +25,13 @@
     </v-navigation-drawer>
     <v-app-bar color="red" flat app>
       <span class="hidden-sm-and-up">
-        <v-app-bar-nav-icon color="white" @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon
+          color="white"
+          aria-label="Show side navigation"
+          @click.stop="drawer = !drawer"
+        >
+          <v-icon>{{ mdiMenu }}</v-icon>
+        </v-app-bar-nav-icon>
       </span>
       <v-toolbar-title>
         <nuxt-link to="/" tag="span" style="cursor: pointer">
@@ -64,7 +70,7 @@
 </template>
 
 <script>
-import { mdiHome, mdiNoodles, mdiMap } from '@mdi/js'
+import { mdiHome, mdiNoodles, mdiMap, mdiMenu } from '@mdi/js'
 
 export default {
   data() {
@@ -90,6 +96,7 @@ export default {
           to: '/location',
         },
       ],
+      mdiMenu,
     }
   },
 }
