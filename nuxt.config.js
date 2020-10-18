@@ -9,6 +9,9 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'en',
+    },
     titleTemplate: '%s - Zien Hong',
     title: 'Zien Hong',
     meta: [
