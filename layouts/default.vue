@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import { mdiHome, mdiNoodles, mdiMap, mdiMenu } from '@mdi/js'
+import { mdiHome, mdiNoodles, mdiMap, mdiMenu, mdiEmail } from '@mdi/js'
 
 export default {
   data() {
@@ -102,6 +102,11 @@ export default {
           icon: mdiMap,
           title: 'Location',
           to: '/location',
+        },
+        {
+          icon: mdiEmail,
+          title: 'Contact',
+          to: '/contact',
         },
       ],
       mdiMenu,

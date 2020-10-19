@@ -1,7 +1,17 @@
 <template>
   <v-container>
     <v-row justify="center">
+      <h1>Contact Us</h1>
+    </v-row>
+    <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6" xl="4">
+        <h2>By Phone</h2>
+        <p><a href="tel:+15032884743">+1 (503) 288-4743</a></p>
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="12" sm="10" md="8" lg="6" xl="4">
+        <h2>Send us a message</h2>
         <v-form
           ref="form"
           v-model="valid"
@@ -19,6 +29,7 @@
                 type="text"
                 name="name"
                 label="Name"
+                aria-label="Name field"
                 required
                 solo
                 outlined
@@ -31,6 +42,7 @@
                 type="email"
                 name="email"
                 label="E-mail"
+                aria-label="E-mail field"
                 required
                 solo
                 outlined
@@ -42,13 +54,21 @@
                 :rules="messageRules"
                 name="message"
                 label="Message"
+                aria-label="Message text area field"
                 required
                 solo
                 outlined
               ></v-textarea>
             </v-row>
             <v-row>
-              <v-btn :disabled="!valid" type="submit" @click="validate">
+              <v-btn
+                :disabled="!valid"
+                type="submit"
+                color="red"
+                class="white--text"
+                aria-label="Submit Form"
+                @click="validate"
+              >
                 Submit
               </v-btn>
             </v-row>
