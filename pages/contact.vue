@@ -1,64 +1,56 @@
 <template>
   <v-container>
-    <v-row>
-      <form name="netlify-test-form" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="test-name" /></label>
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="test-email" /></label>
-        </p>
-        <p>
-          <label
-            >Your Role:
-            <select name="test-role[]" multiple>
-              <option value="leader">Leader</option>
-              <option value="follower">Follower</option>
-            </select></label
-          >
-        </p>
-        <p>
-          <label>Message: <textarea name="test-message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-    </v-row>
-
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6" xl="4">
-        <v-form name="contact" method="POST" data-netlify="true">
+        <v-form
+          ref="form"
+          v-model="valid"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          lazy-validation
+        >
           <input type="hidden" name="form-name" value="contact" />
           <v-container>
             <v-row>
               <v-text-field
+                v-model="name"
+                :rules="nameRules"
                 type="text"
                 name="name"
                 label="Name"
                 required
-                solo-inverted
+                solo
+                outlined
               ></v-text-field>
             </v-row>
             <v-row>
               <v-text-field
+                v-model="email"
+                :rules="emailRules"
                 type="email"
                 name="email"
                 label="E-mail"
                 required
-                solo-inverted
+                solo
+                outlined
               ></v-text-field>
             </v-row>
             <v-row>
               <v-textarea
+                v-model="message"
+                :rules="messageRules"
                 name="message"
                 label="Message"
                 required
-                solo-inverted
+                solo
+                outlined
               ></v-textarea>
             </v-row>
             <v-row>
-              <v-btn type="submit"> submit </v-btn>
+              <v-btn :disabled="!valid" type="submit" @click="validate">
+                Submit
+              </v-btn>
             </v-row>
           </v-container>
         </v-form>
@@ -66,3 +58,27 @@
     </v-row>
   </v-container>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      valid: true,
+      name: '',
+      nameRules: [(v) => !!v || 'Name is required'],
+      email: '',
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+      message: '',
+      messageRules: [(v) => !!v || 'Message is required'],
+    }
+  },
+  methods: {
+    validate() {
+      this.$refs.form.validate()
+    },
+  },
+}
+</script>
