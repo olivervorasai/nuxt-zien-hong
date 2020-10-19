@@ -29,6 +29,7 @@
     <v-row justify="center">
       <v-col cols="12" sm="10" md="8" lg="6" xl="4">
         <v-form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <v-container>
             <v-row>
               <v-text-field
