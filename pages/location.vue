@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <v-row justify="center">
+    <div class="text-center">
       <h1>Hours &amp; Location</h1>
-    </v-row>
-    <v-row justify="center">
-      <p>
+    </div>
+    <div class="text-center mt-6 mb-12">
+      <p class="my-0">
         <a
           href="https://goo.gl/maps/rEanfSNmhZtGz42J9"
           target="_blank"
@@ -12,13 +12,10 @@
           >5314 NE Sandy Blvd, Portland, OR 97213</a
         >
       </p>
-    </v-row>
-    <v-row justify="center">
-      <p><a href="tel:503-288-4743">503-288-4743</a></p>
-    </v-row>
-    <v-row justify="center">
-      <p>Everyday: 11am - 11pm</p>
-    </v-row>
+      <p class="my-0"><a href="tel:503-288-4743">503-288-4743</a></p>
+      <p class="my-0">Open Everyday</p>
+      <p class="my-0">11AM - 11PM</p>
+    </div>
 
     <v-row justify="center">
       <v-progress-circular
