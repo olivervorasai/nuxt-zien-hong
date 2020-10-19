@@ -21,7 +21,9 @@ export default {
   },
   computed: {
     filteredCategories() {
-      return this.categories.slice(0, 1)
+      return this.categories.filter(
+        (category) => category.name.toLowerCase() === 'luncheon'
+      )
     },
   },
 }
