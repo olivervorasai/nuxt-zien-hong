@@ -6,20 +6,29 @@
           <v-container>
             <v-row>
               <v-text-field
-                label="Full Name"
+                type="text"
+                name="name"
+                label="Name"
                 required
                 solo-inverted
               ></v-text-field>
             </v-row>
             <v-row>
               <v-text-field
+                type="email"
+                name="email"
                 label="E-mail"
                 required
                 solo-inverted
               ></v-text-field>
             </v-row>
             <v-row>
-              <v-textarea label="Message" required solo-inverted></v-textarea>
+              <v-textarea
+                name="message"
+                label="Message"
+                required
+                solo-inverted
+              ></v-textarea>
             </v-row>
             <v-row>
               <v-btn type="submit"> submit </v-btn>
