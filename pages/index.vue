@@ -15,23 +15,11 @@
       <v-row justify="center">
         <h2 class="text-h6 text-sm-h5 text-md-h4">CÁC MÓN ÁN, XÀO MÌ, CHÈ</h2>
       </v-row>
-      <v-card>
-        <v-card-title class="headline"> Our COVID-19 Response </v-card-title>
-        <v-card-text>
-          <p>
-            In accordance to guidlines from the Governor and the CDC our dining
-            room is closed until further notice. We remain open for business and
-            continue to accept phone-in and walk-in orders for take-out only. To
-            properly observe social distancing, we may limit the number of
-            customers allowed at the order counter and request you wait outside
-            for your order.
-          </p>
-          <p>We appreciate your support and continued business.</p>
-          <p>Best regards,</p>
-          <div class="text-xs-right">
-            <em>&mdash; Zien Hong Management</em>
-          </div>
-        </v-card-text>
+      <v-card v-for="notice in notices" :key="notice.id">
+        <v-card-title class="headline"> {{ notice.title }} </v-card-title>
+        <!-- Html only comes from cms that can only be edited by administrator -->
+        <!-- eslint-disable-next-line -->
+        <v-card-text v-html="notice.content" />
       </v-card>
 
       <v-row justify="center">
@@ -78,6 +66,24 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+import MarkdownIt from 'markdown-it'
+const md = new MarkdownIt()
+
+export default {
+  async asyncData({ $strapi }) {
+    return {
+      notices: await $strapi.find('notices').then((res) => {
+        res.forEach((notice) => {
+          notice.content = md.render(notice.content)
+        })
+        return res
+      }),
+    }
+  },
+}
+</script>
 
 <style scoped>
 .zoom {

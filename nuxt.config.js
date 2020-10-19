@@ -71,6 +71,10 @@ export default {
         name: 'categories',
         type: 'collection',
       },
+      {
+        name: 'notices',
+        type: 'collection',
+      },
     ],
   },
 }
