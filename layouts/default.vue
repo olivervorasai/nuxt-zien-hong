@@ -6,6 +6,14 @@
       color="red"
       app
     >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title white--text">
+            {{ appTitle }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider />
       <v-list>
         <v-list-item
           v-for="item in items"
