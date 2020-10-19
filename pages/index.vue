@@ -1,31 +1,26 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-row justify="center">
-        <h1 class="text-h5 text-sm-h4 text-md-h3">ZIÊN HỒNG</h1>
-      </v-row>
-      <v-row justify="center">
-        <h2 class="text-h6 text-sm-h5 text-md-h4">雲吞湯麵 經濟小食</h2>
-      </v-row>
-      <v-row justify="center">
-        <h2 class="text-h6 text-sm-h5 text-md-h4">
-          UNIQUE &amp; EXOTIC ORIENTAL CUISINE
-        </h2>
-      </v-row>
-      <v-row justify="center">
-        <h2 class="text-h6 text-sm-h5 text-md-h4">CÁC MÓN ÁN, XÀO MÌ, CHÈ</h2>
-      </v-row>
-      <v-card v-for="notice in notices" :key="notice.id">
+      <div class="text-h4 text-sm-h3 text-md-h2 text-center">
+        <p class="my-0">ZIÊN HỒNG</p>
+      </div>
+      <div class="text-subtitle-1 text-sm-h6 text-center">
+        <p class="my-0">雲吞湯麵 經濟小食</p>
+        <p class="my-0">UNIQUE &amp; EXOTIC ORIENTAL CUISINE</p>
+        <p class="my-0">CÁC MÓN ÁN, XÀO MÌ, CHÈ</p>
+      </div>
+      <div class="my-6 text-subtitle-1 text-sm-h6 text-center">
+        <p class="my-0">Open Everyday</p>
+        <p class="my-0">11AM - 11PM</p>
+      </div>
+      <v-card v-for="notice in notices" :key="notice.id" class="my-12">
         <v-card-title class="headline"> {{ notice.title }} </v-card-title>
-        <!-- Html only comes from cms that can only be edited by administrator -->
+        <!-- HTML comes from CMS that can only be edited by administrator -->
         <!-- eslint-disable-next-line -->
         <v-card-text v-html="notice.content" />
       </v-card>
-
-      <v-row justify="center">
+      <div class="text-center">
         <h1>Order Online</h1>
-      </v-row>
-      <v-row justify="center">
         <a
           class="zoom ma-2"
           href="https://www.doordash.com/business/140276/?utm_source=partner-link&utm_medium=website&utm_campaign=140276&utm_content=red-l"
@@ -62,7 +57,7 @@
             alt="Order delivery from Postmates"
           />
         </a>
-      </v-row>
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -87,6 +82,7 @@ export default {
 
 <style scoped>
 .zoom {
+  display: inline-block;
   transition: transform 0.2s;
 }
 .zoom:hover {
