@@ -74,10 +74,6 @@ export default {
     },
   },
 
-  generate: {
-    fallback: true,
-  },
-
   env: {
     strapiBaseUri,
   },
