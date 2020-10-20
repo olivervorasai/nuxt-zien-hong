@@ -12,8 +12,7 @@ export default {
     htmlAttrs: {
       lang: 'en',
     },
-    titleTemplate: '%s - Zien Hong',
-    title: 'Zien Hong',
+    titleTemplate: 'Zien Hong Restaurant - %s',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

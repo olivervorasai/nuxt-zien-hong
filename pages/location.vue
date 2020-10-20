@@ -59,6 +59,18 @@ export default {
       },
     }
   },
+  head() {
+    return {
+      title: 'Location',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Location information for Zien Hong restaurant.',
+        },
+      ],
+    }
+  },
 }
 </script>
 

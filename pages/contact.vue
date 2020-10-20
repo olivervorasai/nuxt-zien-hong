@@ -109,5 +109,18 @@ export default {
       this.$refs.form.validate()
     },
   },
+  head() {
+    return {
+      title: 'Contact Us',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Zien Hong restaurant contact us page. This page contains contact information for the restaurant.',
+        },
+      ],
+    }
+  },
 }
 </script>

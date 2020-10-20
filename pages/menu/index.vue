@@ -26,5 +26,17 @@ export default {
       )
     },
   },
+  head() {
+    return {
+      title: 'Main Menu',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Main menu of Zien Hong restaurant.',
+        },
+      ],
+    }
+  },
 }
 </script>

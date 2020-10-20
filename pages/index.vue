@@ -123,6 +123,7 @@ export default {
   },
   head() {
     return {
+      title: 'Home',
       script: [
         {
           type: 'application/ld+json',

@@ -26,5 +26,17 @@ export default {
       )
     },
   },
+  head() {
+    return {
+      title: 'Lunch Special',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Lunch special menu for Zien Hong restaurant.',
+        },
+      ],
+    }
+  },
 }
 </script>
