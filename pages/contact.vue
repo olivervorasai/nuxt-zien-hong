@@ -19,7 +19,6 @@
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           lazy-validation
         >
           <input type="hidden" name="form-name" value="contact" />
@@ -68,9 +67,6 @@
               ></v-textarea>
             </v-row>
             <v-row>
-              <div data-netlify-recaptcha="true"></div>
-            </v-row>
-            <v-row>
               <v-btn
                 :disabled="!valid"
                 type="submit"
@@ -104,6 +100,9 @@ export default {
       message: '',
       messageRules: [(v) => !!v || 'Message is required'],
     }
+  },
+  mounted() {
+    this.$refs.form.validate()
   },
   methods: {
     validate() {
