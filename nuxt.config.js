@@ -75,7 +75,7 @@ export default {
   },
 
   generate: {
-    fallback: '404.html',
+    fallback: true,
   },
 
   env: {
