@@ -65,8 +65,12 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <div class="address">
-        <span class="text-right text-caption white--text">{{ address }}</span>
-        <span class="text-right text-caption white--text">{{ phoneNum }}</span>
+        <span class="text-right text-caption white--text">{{
+          $store.state.business_info.address_full
+        }}</span>
+        <span class="text-right text-caption white--text">{{
+          $store.state.business_info.telephone_pretty
+        }}</span>
       </div>
     </v-app-bar>
     <v-main>

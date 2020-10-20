@@ -2,16 +2,19 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <div class="text-h4 text-sm-h3 text-md-h2 text-center">
-        <p class="my-0">ZIÊN HỒNG</p>
+        <p class="my-0">{{ $store.state.business_info.vietnamese_name }}</p>
       </div>
       <div class="text-subtitle-1 text-sm-h6 text-center">
-        <p class="my-0">雲吞湯麵 經濟小食</p>
-        <p class="my-0">UNIQUE &amp; EXOTIC ORIENTAL CUISINE</p>
-        <p class="my-0">CÁC MÓN ÁN, XÀO MÌ, CHÈ</p>
+        <p class="my-0">{{ $store.state.business_info.chinese_subtitle }}</p>
+        <p class="my-0">{{ $store.state.business_info.english_subtitle }}</p>
+        <p class="my-0">{{ $store.state.business_info.vietnamese_subtitle }}</p>
       </div>
       <div class="my-6 text-subtitle-1 text-sm-h6 text-center">
         <p class="my-0">Open Everyday</p>
-        <p class="my-0">11AM - 11PM</p>
+        <p class="my-0">
+          {{ $store.state.business_info.open_hour }} -
+          {{ $store.state.business_info.close_hour }}
+        </p>
       </div>
       <v-card v-for="notice in notices" :key="notice.id" class="my-12">
         <v-card-title class="headline"> {{ notice.title }} </v-card-title>

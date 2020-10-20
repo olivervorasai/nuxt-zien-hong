@@ -89,6 +89,10 @@ export default {
         name: 'notices',
         type: 'collection',
       },
+      {
+        name: 'business-info',
+        type: 'single',
+      },
     ],
   },
 }

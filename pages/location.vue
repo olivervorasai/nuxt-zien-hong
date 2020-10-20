@@ -12,9 +12,16 @@
           >5314 NE Sandy Blvd, Portland, OR 97213</a
         >
       </p>
-      <p class="my-0"><a href="tel:503-288-4743">503-288-4743</a></p>
+      <p class="my-0">
+        <a :href="'tel:' + $store.state.business_info.telephone">{{
+          $store.state.business_info.telephone_pretty
+        }}</a>
+      </p>
       <p class="my-0">Open Everyday</p>
-      <p class="my-0">11AM - 11PM</p>
+      <p class="my-0">
+        {{ $store.state.business_info.open_hour }} -
+        {{ $store.state.business_info.close_hour }}
+      </p>
     </div>
 
     <v-row justify="center">
@@ -43,7 +50,6 @@
 
 <script>
 export default {
-  name: 'Location',
   data() {
     return {
       iframe: {
