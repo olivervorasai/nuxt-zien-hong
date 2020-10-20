@@ -80,6 +80,52 @@ export default {
       }),
     }
   },
+  head() {
+    return {
+      script: [
+        {
+          type: 'application/ld+json',
+          src: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Restaurant',
+            image: [],
+            '@id': this.$store.state.business_info.url,
+            name: this.$store.state.business_info.name,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: this.$store.state.business_info.address_street,
+              addressLocality: this.$store.state.business_info.address_locality,
+              addressRegion: this.$store.state.business_info.address_region,
+              postalCode: this.$store.state.business_info.postal_code,
+              addressCountry: this.$store.state.business_info.address_country,
+            },
+            url: this.$store.state.business_info.url,
+            telephone: this.$store.state.business_info.telephone,
+            servesCuisine: this.$store.state.business_info.cuisine_type,
+            priceRange: this.$store.state.business_info.price_range,
+            openingHoursSpecification: [
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                  'Sunday',
+                  'Monday',
+                  'Tuesday',
+                  'Wednesday',
+                  'Thursday',
+                  'Friday',
+                  'Saturday',
+                ],
+                opens: this.$store.state.business_info.open_hour,
+                closes: this.$store.state.business_info.close_hour,
+              },
+            ],
+            menu: this.$store.state.business_info.url + 'menu',
+            acceptsReservations: this.$store.state.business_info.reservations,
+          }),
+        },
+      ],
+    }
+  },
 }
 </script>
 
