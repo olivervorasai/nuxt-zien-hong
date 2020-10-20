@@ -18,9 +18,16 @@
           name="contact"
           method="POST"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           lazy-validation
         >
           <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden d-none">
+            <label
+              >Don’t fill this out if you're human: <input name="bot-field"
+            /></label>
+          </p>
           <v-container>
             <v-row>
               <v-text-field
@@ -59,6 +66,9 @@
                 solo
                 outlined
               ></v-textarea>
+            </v-row>
+            <v-row>
+              <div data-netlify-recaptcha="true"></div>
             </v-row>
             <v-row>
               <v-btn
