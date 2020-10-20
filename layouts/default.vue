@@ -9,7 +9,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title white--text">
-            {{ appTitle }}
+            {{ $store.state.business_info.name.toUpperCase() }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -43,7 +43,9 @@
       </span>
       <v-toolbar-title>
         <nuxt-link to="/" tag="span" style="cursor: pointer">
-          <span class="white--text">{{ appTitle }}</span>
+          <span class="white--text">{{
+            $store.state.business_info.name.toUpperCase()
+          }}</span>
         </nuxt-link>
       </v-toolbar-title>
       <v-spacer />
@@ -87,9 +89,6 @@ import { mdiHome, mdiNoodles, mdiMap, mdiMenu, mdiEmail } from '@mdi/js'
 export default {
   data() {
     return {
-      appTitle: 'ZIEN HONG',
-      address: '5314 NE Sandy Blvd, Portland, OR 97213',
-      phoneNum: '503-288-5743',
       drawer: false,
       items: [
         {
