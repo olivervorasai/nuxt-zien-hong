@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div v-for="category in categories" :key="category.id">
+    <div v-for="category in categories" :key="category.id" class="mb-12">
       <h2>{{ category.name }}</h2>
       <div class="items-container">
         <div v-for="item in category.menu_items" :key="item.id" class="item">
