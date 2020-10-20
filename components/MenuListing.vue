@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container class="px-0">
     <div v-for="category in categories" :key="category.id" class="mb-12">
-      <h2>{{ category.name }}</h2>
+      <h2 class="text-center mb-2">{{ category.name }}</h2>
       <div class="items-container">
         <div v-for="item in category.menu_items" :key="item.id" class="item">
           <div class="item-left">
@@ -53,21 +53,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
-  @media screen and (min-width: 961px) {
-    margin: 0 10em;
-  }
-}
-
 .items-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  @media screen and (min-width: 1904px) {
+    margin: 0 16em;
+  }
   .item {
     @media screen and (max-width: 960px) {
       flex: 0 0 100%;
     }
     @media screen and (min-width: 961px) {
-      flex: 0 0 40%;
+      flex: 0 0 49%;
     }
     background-color: white;
     border-radius: 0.25em;
@@ -96,5 +94,9 @@ export default {
       right: 0.5em;
     }
   }
+}
+.items-container::after {
+  content: '';
+  flex: 0 0 49%;
 }
 </style>

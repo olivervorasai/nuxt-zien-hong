@@ -1,7 +1,5 @@
 <template>
-  <v-container>
-    <menu-listing :categories="filteredCategories" />
-  </v-container>
+  <menu-listing :categories="filteredCategories" />
 </template>
 
 <script>
