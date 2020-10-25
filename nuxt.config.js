@@ -1,7 +1,7 @@
 const strapiBaseUri =
   process.env.NODE_ENV === 'development'
-    ? 'http://localhost:1337/'
-    : 'https://zien-hong-strapi.herokuapp.com/'
+    ? 'http://localhost:1337'
+    : 'http://localhost:1337'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -41,6 +41,13 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
+    [
+      'nuxt-magpie',
+      {
+        baseUrl: strapiBaseUri,
+      },
+    ],
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

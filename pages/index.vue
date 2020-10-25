@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       structureData: {
-        '@context': 'https://schema.org',
+        '@context': 'https://schema.org/',
         '@type': 'Restaurant',
         image: [require('@/assets/IMG_5526.jpg')],
         '@id': this.$store.state.business_info.url,

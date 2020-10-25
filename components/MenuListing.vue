@@ -1,33 +1,73 @@
 <template>
   <v-container class="px-0">
-    <div v-for="category in categories" :key="category.id" class="mb-12">
+    <div v-for="category in categories" :key="category.id" dense>
       <h2 class="text-center mb-2">{{ category.name }}</h2>
-      <div class="items-container">
-        <div v-for="item in category.menu_items" :key="item.id" class="item">
-          <div class="item-left">
-            <div>
-              <strong>{{ item.name }}</strong>
-            </div>
-            <div class="item-content">{{ item.vietnamese_name }}</div>
-            <div class="item-content">{{ item.chinese_name }}</div>
-            <div class="item-content">{{ item.description }}</div>
-            <div class="item-price">
-              <strong>
+      <v-row dense>
+        <v-col
+          v-for="item in category.menu_items"
+          :key="item.id"
+          cols="12"
+          sm="12"
+          md="12"
+          lg="6"
+        >
+          <v-card>
+            <div class="d-flex flex-no-wrap justify-space-between">
+              <div>
+                <v-card-title class="headline text-subtitle-1 font-weight-bold"
+                  >{{ item.name
+                  }}<v-icon v-if="item.spicy" color="red">{{
+                    mdiChiliMild
+                  }}</v-icon></v-card-title
+                >
+                <v-card-subtitle class="py-0" v-text="item.vietnamese_name">
+                </v-card-subtitle>
+                <v-card-subtitle class="py-0" v-text="item.chinese_name">
+                </v-card-subtitle>
+                <v-card-subtitle class="py-0" v-text="item.description">
+                </v-card-subtitle>
+              </div>
+              <v-avatar
+                class="align-self-end"
+                height="125"
+                min-width="150"
+                width="auto"
+                tile
+              >
+                <v-dialog v-if="item.image" v-model="dialog" width="unset">
+                  <template v-slot:activator="{ on, attrs }">
+                    <img
+                      :srcset="generateSrcset(item.image.formats)"
+                      sizes="(max-width: 1000px) 480px, 800px, 1000px"
+                      :src="generateLink(item.image.formats)"
+                      v-bind="attrs"
+                      v-on="on"
+                    />
+                  </template>
+                  <v-card>
+                    <img
+                      :srcset="generateSrcset(item.image.formats)"
+                      sizes="(max-width: 1000px) 480px, 800px, 1000px"
+                      :src="generateLink(item.image.formats)"
+                    />
+                  </v-card>
+                </v-dialog>
+              </v-avatar>
+              <div class="item-price font-weight-bold rounded px-1">
                 <span v-if="category.name === 'Luncheon'"
                   >${{ item.special_price.toFixed(2) }}</span
                 >
-                <span v-else>${{ item.base_price.toFixed(2) }}</span>
-                <span v-if="item.large_price"
-                  >/ ${{ item.large_price.toFixed(2) }}</span
-                >
-              </strong>
+                <span v-else>
+                  ${{ item.base_price.toFixed(2) }}
+                  <span v-if="item.large_price">
+                    / ${{ item.large_price.toFixed(2) }}
+                  </span>
+                </span>
+              </div>
             </div>
-          </div>
-          <div v-if="item.spicy" class="item-spicy">
-            <v-icon color="red">{{ mdiChiliMild }}</v-icon>
-          </div>
-        </div>
-      </div>
+          </v-card>
+        </v-col>
+      </v-row>
     </div>
   </v-container>
 </template>
@@ -47,56 +87,34 @@ export default {
   data() {
     return {
       mdiChiliMild,
+      dialog: false,
     }
+  },
+  methods: {
+    generateSrcset(formats) {
+      return `
+        ${process.env.strapiBaseUri + formats.small.url} 480w,
+        ${process.env.strapiBaseUri + formats.medium.url} 800w,
+        ${process.env.strapiBaseUri + formats.large.url} 1000w
+      `
+    },
+    generateLink(formats) {
+      return process.env.strapiBaseUri + formats.small.url
+    },
   },
 }
 </script>
 
 <style scoped lang="scss">
-.items-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  @media screen and (min-width: 1904px) {
-    margin: 0 16em;
-  }
-  .item {
-    @media screen and (max-width: 960px) {
-      flex: 0 0 100%;
-    }
-    @media screen and (min-width: 961px) {
-      flex: 0 0 49%;
-    }
-    background-color: white;
-    border-radius: 0.25em;
-    margin: 0.25em;
-    padding: 0.5em;
-    position: relative;
-    box-shadow: 0 0 0 1px rgba(67, 41, 163, 0.08),
-      0 1px 5px 0 rgba(67, 41, 163, 0.08);
-
-    .item-left {
-      max-width: 70%;
-    }
-
-    .item-content {
-      color: #6b6b83;
-    }
-
-    .item-price {
-      position: absolute;
-      top: 0.5em;
-      right: 0.5em;
-    }
-    .item-spicy {
-      position: absolute;
-      bottom: 0.5em;
-      right: 0.5em;
-    }
-  }
+.v-card__text,
+.v-card__title {
+  word-break: normal;
 }
-.items-container::after {
-  content: '';
-  flex: 0 0 49%;
+
+.item-price {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 </style>
