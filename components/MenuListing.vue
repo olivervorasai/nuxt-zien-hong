@@ -40,12 +40,14 @@
                       :srcset="generateSrcset(item.image.formats)"
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
                       :src="generateLink(item.image.formats)"
-                      v-bind="attrs"
-                      v-on="on"
                     />
+                    <v-icon class="item-magnify" v-bind="attrs" v-on="on">{{
+                      mdiMagnify
+                    }}</v-icon>
                   </template>
                   <v-card>
                     <img
+                      class="dialog-popup-img"
                       :srcset="generateSrcset(item.image.formats)"
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
                       :src="generateLink(item.image.formats)"
@@ -73,7 +75,7 @@
 </template>
 
 <script>
-import { mdiChiliMild } from '@mdi/js'
+import { mdiChiliMild, mdiMagnify } from '@mdi/js'
 
 export default {
   props: {
@@ -87,6 +89,7 @@ export default {
   data() {
     return {
       mdiChiliMild,
+      mdiMagnify,
       dialog: false,
     }
   },
@@ -116,5 +119,19 @@ export default {
   top: 16px;
   right: 16px;
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+.item-magnify {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.item-magnify:hover {
+  opacity: 1;
+}
+
+.dialog-popup-img {
+  width: 100%;
 }
 </style>
