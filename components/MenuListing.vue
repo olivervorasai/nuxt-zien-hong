@@ -20,11 +20,15 @@
                     mdiChiliMild
                   }}</v-icon></v-card-title
                 >
-                <v-card-subtitle class="py-0" v-text="item.vietnamese_name">
+                <v-card-subtitle
+                  class="py-0"
+                  v-text="item.vietnamese_name + ' | ' + item.chinese_name"
+                >
                 </v-card-subtitle>
-                <v-card-subtitle class="py-0" v-text="item.chinese_name">
-                </v-card-subtitle>
-                <v-card-subtitle class="py-0" v-text="item.description">
+                <v-card-subtitle
+                  class="py-0 item-description"
+                  v-text="item.description"
+                >
                 </v-card-subtitle>
               </div>
               <v-avatar
@@ -133,5 +137,12 @@ export default {
 
 .dialog-popup-img {
   width: 100%;
+}
+
+.item-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 </style>
