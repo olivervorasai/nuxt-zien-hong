@@ -41,14 +41,14 @@
                 width="auto"
                 tile
               >
-                <v-dialog v-if="item.image" v-model="dialog" width="unset">
-                  <template v-slot:activator="{ on, attrs }">
+                <v-dialog v-if="item.image" v-model="item.dialog" width="unset">
+                  <template v-slot:activator="{ on }">
                     <img
                       :srcset="generateSrcset(item.image.formats)"
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
                       :src="generateLink(item.image.formats)"
                     />
-                    <v-icon class="item-magnify" v-bind="attrs" v-on="on">{{
+                    <v-icon class="item-magnify" v-on="on">{{
                       mdiMagnify
                     }}</v-icon>
                   </template>
@@ -97,7 +97,6 @@ export default {
     return {
       mdiChiliMild,
       mdiMagnify,
-      dialog: false,
     }
   },
   methods: {
