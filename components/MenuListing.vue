@@ -15,10 +15,13 @@
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
                 <v-card-title class="headline text-subtitle-1 font-weight-bold"
-                  >{{ item.name
-                  }}<v-icon v-if="item.spicy" color="red">{{
-                    mdiChiliMild
-                  }}</v-icon></v-card-title
+                  >{{ item.name }}
+                  <v-icon
+                    v-if="item.spicy"
+                    color="red"
+                    class="item-spicy rounded"
+                    >{{ mdiChiliMild }}</v-icon
+                  ></v-card-title
                 >
                 <v-card-subtitle
                   class="py-0"
@@ -122,6 +125,15 @@ export default {
   position: absolute;
   top: 16px;
   right: 16px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.item-spicy {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 99;
+  pointer-events: none;
   background-color: rgba(255, 255, 255, 0.75);
 }
 
