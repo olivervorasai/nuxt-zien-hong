@@ -25,7 +25,7 @@
                 >
                 <v-card-subtitle
                   class="py-0"
-                  v-text="item.vietnamese_name + ' | ' + item.chinese_name"
+                  v-text="item.chinese_name + ' | ' + item.vietnamese_name"
                 >
                 </v-card-subtitle>
                 <v-card-subtitle
@@ -115,6 +115,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~vuetify/src/styles/settings/_variables';
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .v-card__title {
+    line-height: 1em;
+  }
+}
+
 .v-card__text,
 .v-card__title {
   word-break: normal;
@@ -124,6 +132,7 @@ export default {
   position: absolute;
   top: 16px;
   right: 16px;
+  pointer-events: none;
   background-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -133,7 +142,7 @@ export default {
   right: 16px;
   z-index: 99;
   pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .item-magnify {
