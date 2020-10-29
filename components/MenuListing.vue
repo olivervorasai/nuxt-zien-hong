@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-0">
+  <v-container class="px-0 px-xl-16">
     <div v-for="category in categories" :key="category.id" dense>
       <h2 class="text-center mb-2">{{ category.name }}</h2>
       <v-row dense>
@@ -24,7 +24,7 @@
                   ></v-card-title
                 >
                 <v-card-subtitle
-                  class="py-0"
+                  class="py-0 other-lang-name"
                   v-text="item.chinese_name + ' | ' + item.vietnamese_name"
                 >
                 </v-card-subtitle>
@@ -59,6 +59,10 @@
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
                       :src="generateLink(item.image.formats)"
                     />
+                    <v-card-text
+                      class="text-center font-weight-bold"
+                      v-text="item.image.caption"
+                    ></v-card-text>
                   </v-card>
                 </v-dialog>
               </v-avatar>
@@ -117,12 +121,6 @@ export default {
 <style scoped lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
 
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-  .v-card__title {
-    line-height: 1em;
-  }
-}
-
 .v-card__text,
 .v-card__title {
   word-break: normal;
@@ -140,7 +138,7 @@ export default {
   position: absolute;
   bottom: 16px;
   right: 16px;
-  z-index: 99;
+  z-index: 1;
   pointer-events: none;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -164,5 +162,28 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+/*
+.container {
+  padding: 0;
+}
+
+@media #{map-get($display-breakpoints, 'xl-only')} {
+  .container {
+    padding: 0 8em;
+  }
+}
+*/
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .v-card__title {
+    line-height: 1em;
+    padding-bottom: 0;
+  }
+  .other-lang-name {
+    display: none;
+  }
+  .item-description {
+    -webkit-line-clamp: 3;
+  }
 }
 </style>
