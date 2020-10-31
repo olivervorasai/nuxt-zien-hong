@@ -18,6 +18,7 @@
           name="contact"
           method="POST"
           data-netlify="true"
+          data-netlify-recaptcha="true"
           data-netlify-honeypot="bot-field"
           lazy-validation
         >
@@ -65,6 +66,12 @@
                 solo
                 outlined
               ></v-textarea>
+            </v-row>
+            <v-row>
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Le4l90ZAAAAAAJxjRiWqiHs6Fv1LOzTDlaA4L4b"
+              ></div>
             </v-row>
             <v-row>
               <v-btn
@@ -120,6 +127,7 @@ export default {
             'Zien Hong restaurant contact us page. This page contains contact information for the restaurant.',
         },
       ],
+      script: [{ src: 'https://www.google.com/recaptcha/api.js' }],
     }
   },
 }
