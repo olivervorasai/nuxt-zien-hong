@@ -1,7 +1,7 @@
 const strapiBaseUri =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:1337'
-    : 'https://zien-hong-strapi.herokuapp.com'
+    : 'http://localhost:1337'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)

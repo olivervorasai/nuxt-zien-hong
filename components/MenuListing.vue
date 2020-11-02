@@ -163,17 +163,7 @@ export default {
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/*
-.container {
-  padding: 0;
-}
 
-@media #{map-get($display-breakpoints, 'xl-only')} {
-  .container {
-    padding: 0 8em;
-  }
-}
-*/
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
   .v-card__title {
     line-height: 1em;
