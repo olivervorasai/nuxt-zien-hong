@@ -66,22 +66,10 @@
 </template>
 
 <script>
-import MarkdownIt from 'markdown-it'
-const md = new MarkdownIt()
-
 export default {
-  async asyncData({ $strapi }) {
-    return {
-      notices: await $strapi.find('notices').then((res) => {
-        res.forEach((notice) => {
-          notice.content = md.render(notice.content)
-        })
-        return res
-      }),
-    }
-  },
   data() {
     return {
+      notices: this.$store.state.notices,
       structureData: {
         '@context': 'https://schema.org/',
         '@type': 'Restaurant',

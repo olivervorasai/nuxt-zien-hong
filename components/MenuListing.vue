@@ -46,7 +46,7 @@
                     <img
                       :srcset="generateSrcset(item.image.formats)"
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
-                      :src="generateLink(item.image.formats)"
+                      :src="item.image.formats.small.url"
                     />
                     <v-icon class="item-magnify" v-on="on">{{
                       mdiMagnify
@@ -57,7 +57,7 @@
                       class="dialog-popup-img"
                       :srcset="generateSrcset(item.image.formats)"
                       sizes="(max-width: 1000px) 480px, 800px, 1000px"
-                      :src="generateLink(item.image.formats)"
+                      :src="item.image.formats.small.url"
                     />
                     <v-card-text
                       class="text-center font-weight-bold"
@@ -106,13 +106,10 @@ export default {
   methods: {
     generateSrcset(formats) {
       return `
-        ${process.env.strapiBaseUri + formats.small.url} 480w,
-        ${process.env.strapiBaseUri + formats.medium.url} 800w,
-        ${process.env.strapiBaseUri + formats.large.url} 1000w
+        ${formats.small.url} 480w,
+        ${formats.medium.url} 800w,
+        ${formats.large.url} 1000w
       `
-    },
-    generateLink(formats) {
-      return process.env.strapiBaseUri + formats.small.url
     },
   },
 }

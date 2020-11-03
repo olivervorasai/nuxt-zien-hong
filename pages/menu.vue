@@ -31,16 +31,9 @@
 
 <script>
 export default {
-  async asyncData({ $strapi }) {
+  data() {
     return {
-      categories: await $strapi.find('categories').then((res) => {
-        res.forEach((category) => {
-          category.menu_items.sort((a, b) =>
-            a.name.localeCompare(b.name, undefined, { numeric: true })
-          )
-        })
-        return res
-      }),
+      categories: this.$store.state.categories,
     }
   },
   methods: {
