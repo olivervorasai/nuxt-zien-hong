@@ -1,29 +1,12 @@
 <template>
   <v-container class="px-0">
     <v-row justify="center">
-      <v-btn
-        :to="'/menu'"
-        class="white--text"
-        color="deep-orange"
-        aria-label="Menu"
-        exact
-        depressed
-        nuxt
-        @click="setActiveCategory"
-      >
-        Menu
-      </v-btn>
-      <v-btn
-        :to="'/menu/luncheon'"
-        color="deep-orange"
-        aria-label="Lunch Special"
-        exact
-        outlined
-        nuxt
-        @click="setActiveCategory"
-      >
-        Lunch Special
-      </v-btn>
+      <v-btn-toggle v-model="toggle" class="button-group" tile dense mandatory>
+        <v-btn :to="'/menu'" aria-label="Menu" exact nuxt> Menu </v-btn>
+        <v-btn :to="'/menu/luncheon'" aria-label="Lunch Special" exact nuxt>
+          Lunch Special
+        </v-btn>
+      </v-btn-toggle>
     </v-row>
     <nuxt-child :categories="categories" />
   </v-container>
@@ -34,36 +17,25 @@ export default {
   data() {
     return {
       categories: this.$store.state.categories,
+      toggle: undefined,
     }
-  },
-  methods: {
-    setActiveCategory(e) {
-      // Vuetify button classes that define normal/outlined buttons
-      const active = ['deep-orange', 'white--text']
-      const inactive = ['v-btn--flat', 'v-btn--outlined', 'deep-orange--text']
-
-      const target =
-        e.target.tagName === 'SPAN' ? e.target.parentElement : e.target
-      const buttons = target.parentElement.children
-
-      // Change classes for all buttons
-      buttons.forEach((element) => {
-        if (element === target) {
-          element.classList.add(...active)
-          element.classList.remove(...inactive)
-        } else {
-          element.classList.add(...inactive)
-          element.classList.remove(...active)
-        }
-      })
-    },
   },
 }
 </script>
 
 <style scoped lang="scss">
-.v-btn {
-  margin: 1em;
-  font-weight: 700;
+.button-group {
+  .v-btn {
+    font-weight: 700;
+  }
+  .v-btn--active {
+    background-color: #ff5722 !important;
+    border-color: #ff5722 !important;
+    color: #ffffff !important;
+  }
+  a:not(.v-btn--active) {
+    color: #ff5722 !important;
+    background-color: transparent !important;
+  }
 }
 </style>
