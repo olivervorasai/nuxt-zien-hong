@@ -1,6 +1,6 @@
 <template>
   <v-container class="px-0 px-xl-16">
-    <div v-for="category in categories" :key="category.id" dense>
+    <div v-for="category in categories" :key="category.id" class="mt-8" dense>
       <h1 class="text-center">{{ category.name }}</h1>
       <!-- HTML comes from CMS that can only be edited by administrator -->
       <!-- eslint-disable-next-line -->
