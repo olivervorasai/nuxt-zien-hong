@@ -28,7 +28,11 @@
                 >
                 <v-card-subtitle
                   class="py-0 other-lang-name"
-                  v-text="item.chinese_name + ' | ' + item.vietnamese_name"
+                  v-text="
+                    [item.chinese_name, item.vietnamese_name]
+                      .filter(Boolean)
+                      .join(' | ')
+                  "
                 >
                 </v-card-subtitle>
                 <v-card-subtitle
