@@ -9,15 +9,28 @@
       </v-btn-toggle>
     </v-row>
     <nuxt-child :categories="categories" />
+    <v-row justify="center" class="mt-6">
+      <p class="mb-0 red--text font-weight-bold">
+        <v-icon color="red">{{ mdiChiliMild }}</v-icon> Indicates Spicy Items
+      </p>
+    </v-row>
+    <v-row justify="center" class="mb-6">
+      <p class="mb-0 red--text font-weight-bold">
+        Menu uses imitation crab meat.
+      </p>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import { mdiChiliMild } from '@mdi/js'
+
 export default {
   data() {
     return {
       categories: this.$store.state.categories,
       toggle: undefined,
+      mdiChiliMild,
     }
   },
 }

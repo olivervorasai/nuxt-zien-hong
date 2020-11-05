@@ -1,7 +1,10 @@
 <template>
   <v-container class="px-0 px-xl-16">
     <div v-for="category in categories" :key="category.id" dense>
-      <h2 class="text-center mb-2">{{ category.name }}</h2>
+      <h1 class="text-center">{{ category.name }}</h1>
+      <!-- HTML comes from CMS that can only be edited by administrator -->
+      <!-- eslint-disable-next-line -->
+      <div class="mb-2" align="center" v-html="category.description"></div>
       <v-row dense>
         <v-col
           v-for="item in category.menu_items"

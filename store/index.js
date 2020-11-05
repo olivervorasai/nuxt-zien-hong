@@ -25,6 +25,9 @@ export const mutations = {
   },
   SET_CATEGORIES(state, value) {
     value.forEach((category) => {
+      if (category.description) {
+        category.description = md.render(category.description)
+      }
       category.menu_items.sort((a, b) =>
         a.name.localeCompare(b.name, undefined, { numeric: true })
       )
