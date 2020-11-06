@@ -74,7 +74,8 @@
                 </v-dialog>
               </v-avatar>
               <div class="item-price font-weight-bold rounded px-1">
-                <span v-if="category.name === 'Luncheon'"
+                <span v-if="item.base_price === 0">M.P.</span>
+                <span v-else-if="category.name === 'Luncheon'"
                   >${{ item.special_price.toFixed(2) }}</span
                 >
                 <span v-else>
