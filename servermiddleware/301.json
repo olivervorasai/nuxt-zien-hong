@@ -1,0 +1,7 @@
+[
+  { "from": "/menu_1.html", "to": "/menu" },
+  { "from": "/menu_2.html", "to": "/menu" },
+  { "from": "/menu_3.html", "to": "/menu" },
+  { "from": "/menu_4.html", "to": "/menu" },
+  { "from": "/Zien_Hong_Menu.pdf", "to": "/menu" }
+]
