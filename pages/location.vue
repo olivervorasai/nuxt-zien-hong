@@ -4,23 +4,23 @@
       <h1>Hours &amp; Location</h1>
     </div>
     <div class="text-center mt-6 mb-12">
-      <p class="my-0">
+      <p class="my-0 text-h5">Open Everyday</p>
+      <p class="my-0 text-h5">
+        {{ $store.state.business_info.open_hour }} -
+        {{ $store.state.business_info.close_hour }}
+      </p>
+      <p class="my-0 mt-6 font-weight-bold text-h5">
         <a
           href="https://goo.gl/maps/rEanfSNmhZtGz42J9"
           target="_blank"
           rel="noopener"
-          >5314 NE Sandy Blvd, Portland, OR 97213</a
+          >{{ $store.state.business_info.address_full }}</a
         >
       </p>
-      <p class="my-0">
+      <p class="my-0 mt-2 font-weight-bold text-h5">
         <a :href="'tel:' + $store.state.business_info.telephone">{{
           $store.state.business_info.telephone_pretty
         }}</a>
-      </p>
-      <p class="my-0">Open Everyday</p>
-      <p class="my-0">
-        {{ $store.state.business_info.open_hour }} -
-        {{ $store.state.business_info.close_hour }}
       </p>
     </div>
 
