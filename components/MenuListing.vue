@@ -1,6 +1,7 @@
 <template>
   <v-container class="px-0 px-xl-16">
     <div v-for="category in categories" :key="category.id" class="mt-8" dense>
+      <span :id="category.slug" class="anchor"></span>
       <h1 class="text-center">{{ category.name }}</h1>
       <!-- HTML comes from CMS that can only be edited by administrator -->
       <!-- eslint-disable-next-line -->
@@ -125,6 +126,13 @@ export default {
 
 <style scoped lang="scss">
 @import '~vuetify/src/styles/settings/_variables';
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -150px;
+  visibility: hidden;
+}
 
 .v-card__text,
 .v-card__title {

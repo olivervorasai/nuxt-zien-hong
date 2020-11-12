@@ -6,29 +6,66 @@
       color="red"
       app
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title white--text">
-            {{ $store.state.business_info.name.toUpperCase() }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-divider />
       <v-list>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon color="white">{{ item.icon }}</v-icon>
-          </v-list-item-action>
+        <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="white--text" v-text="item.title" />
+            <v-list-item-title class="title white--text">
+              {{ $store.state.business_info.name.toUpperCase() }}
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-divider />
+        <template v-for="item in items">
+          <v-list-group
+            v-if="item.submenu"
+            :key="item.title"
+            v-model="item.active"
+            color="white"
+            no-action
+          >
+            <v-icon
+              slot="prependIcon"
+              color="white"
+              v-text="item.icon"
+            ></v-icon>
+            <v-icon
+              slot="appendIcon"
+              color="white"
+              v-text="mdiChevronDown"
+            ></v-icon>
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title
+                  class="white--text"
+                  v-text="item.title"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="child in item.submenu"
+              :key="child.title"
+              :to="child.to"
+              router
+              exact
+            >
+              <v-list-item-content>
+                <v-list-item-title
+                  class="white--text"
+                  v-text="child.title"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+          <v-list-item v-else :key="item.title" :to="item.to" router exact>
+            <v-list-item-icon>
+              <v-icon color="white" v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="white--text" v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar color="red" flat app>
@@ -84,7 +121,14 @@
 </template>
 
 <script>
-import { mdiHome, mdiNoodles, mdiMap, mdiMenu, mdiEmail } from '@mdi/js'
+import {
+  mdiHome,
+  mdiNoodles,
+  mdiMap,
+  mdiMenu,
+  mdiEmail,
+  mdiChevronDown,
+} from '@mdi/js'
 
 export default {
   data() {
@@ -100,6 +144,8 @@ export default {
           icon: mdiNoodles,
           title: 'Menu',
           to: '/menu',
+          active: true,
+          submenu: this.generateSubmenu(),
         },
         {
           icon: mdiMap,
@@ -113,7 +159,28 @@ export default {
         },
       ],
       mdiMenu,
+      mdiChevronDown,
     }
+  },
+  methods: {
+    generateSubmenu() {
+      const categories = this.$store.state.categories
+      const submenu = []
+      categories.forEach((element) => {
+        if (element.name.toLowerCase() === 'luncheon') {
+          submenu.push({
+            title: element.name,
+            to: `/menu/${element.slug}`,
+          })
+        } else {
+          submenu.push({
+            title: element.name,
+            to: `/menu#${element.slug}`,
+          })
+        }
+      })
+      return submenu
+    },
   },
 }
 </script>

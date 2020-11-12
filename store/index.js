@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import slugify from 'slugify'
 const md = new MarkdownIt()
 
 export const state = () => ({
@@ -39,6 +40,9 @@ export const mutations = {
           }
           item.image.url = process.env.strapiBaseUri + item.image.url
         }
+      })
+      category.slug = slugify(category.name, {
+        lower: true,
       })
     })
     state.categories = value
