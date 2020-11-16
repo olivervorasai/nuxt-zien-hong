@@ -100,8 +100,6 @@ export default {
     },
   },
 
-  serverMiddleware: ['~/servermiddleware/seo.js'],
-
   env: {
     strapiBaseUri,
   },
