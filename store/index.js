@@ -22,6 +22,7 @@ export const mutations = {
     value.forEach((notice) => {
       notice.content = md.render(notice.content)
     })
+    value.sort((a, b) => b.id - a.id)
     state.notices = value
   },
   SET_CATEGORIES(state, value) {
