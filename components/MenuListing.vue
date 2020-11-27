@@ -144,7 +144,7 @@ export default {
   top: 16px;
   right: 16px;
   pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .item-spicy {
