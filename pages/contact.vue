@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-6">
     <v-row justify="center">
       <h1>Contact Us</h1>
     </v-row>

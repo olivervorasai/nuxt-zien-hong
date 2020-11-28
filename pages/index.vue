@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container fluid class="pa-0">
     <v-row justify="center" align="center" class="hidden-md-and-down">
       <v-col cols="12" class="pa-0">
         <v-parallax :src="require('@/assets/parallax-tea.jpg')">

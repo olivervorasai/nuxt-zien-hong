@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-6">
     <div class="text-center">
       <h1>Hours &amp; Location</h1>
     </div>
