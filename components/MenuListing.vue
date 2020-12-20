@@ -49,30 +49,7 @@
                 width="auto"
                 tile
               >
-                <v-dialog v-if="item.image" v-model="item.dialog" width="unset">
-                  <template v-slot:activator="{ on }">
-                    <img
-                      :srcset="generateSrcset(item.image.formats)"
-                      sizes="(max-width: 1000px) 480px, 800px, 1000px"
-                      :src="item.image.formats.small.url"
-                    />
-                    <v-icon class="item-magnify" v-on="on">{{
-                      mdiMagnify
-                    }}</v-icon>
-                  </template>
-                  <v-card>
-                    <img
-                      class="dialog-popup-img"
-                      :srcset="generateSrcset(item.image.formats)"
-                      sizes="(max-width: 1000px) 480px, 800px, 1000px"
-                      :src="item.image.formats.small.url"
-                    />
-                    <v-card-text
-                      class="text-center font-weight-bold"
-                      v-text="item.image.caption"
-                    ></v-card-text>
-                  </v-card>
-                </v-dialog>
+                <menu-dialog :item="item" />
               </v-avatar>
               <div class="item-price font-weight-bold rounded px-1">
                 <span v-if="item.base_price === 0">M.P.</span>
@@ -95,9 +72,13 @@
 </template>
 
 <script>
-import { mdiChiliMild, mdiMagnify } from '@mdi/js'
+import { mdiChiliMild } from '@mdi/js'
+import MenuDialog from '@/components/MenuDialog'
 
 export default {
+  components: {
+    MenuDialog,
+  },
   props: {
     categories: {
       type: Array,
@@ -109,7 +90,6 @@ export default {
   data() {
     return {
       mdiChiliMild,
-      mdiMagnify,
     }
   },
   methods: {
@@ -154,20 +134,6 @@ export default {
   z-index: 1;
   pointer-events: none;
   background-color: rgba(255, 255, 255, 1);
-}
-
-.item-magnify {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-.item-magnify:hover {
-  opacity: 1;
-}
-
-.dialog-popup-img {
-  width: 100%;
 }
 
 .item-description {
