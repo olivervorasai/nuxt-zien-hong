@@ -46,6 +46,7 @@
                 class="align-self-end"
                 height="125"
                 min-width="150"
+                :max-width="$vuetify.breakpoint.xs ? 150 : 250"
                 width="auto"
                 tile
               >

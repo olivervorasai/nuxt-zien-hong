@@ -1,11 +1,13 @@
 <template>
   <v-dialog v-if="item.image" v-model="dialog" width="unset">
     <template v-slot:activator="{ on }">
-      <img
+      <v-img
+        class="avatar-img"
         :srcset="generateSrcset(item.image.formats)"
         sizes="(max-width: 1000px) 480px, 800px, 1000px"
         :src="item.image.formats.small.url"
-      />
+        :lazy-src="item.image.formats.thumbnail.url"
+      ></v-img>
       <v-icon class="item-magnify" v-on="on">{{ mdiMagnify }}</v-icon>
     </template>
     <v-card>
@@ -67,5 +69,10 @@ export default {
 
 .dialog-popup-img {
   width: 100%;
+}
+
+.avatar-img {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 </style>
