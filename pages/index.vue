@@ -43,7 +43,12 @@
         </v-parallax>
       </v-col>
     </v-row>
-    <v-row justify="center" align="center" class="hidden-lg-and-up">
+    <v-row
+      justify="center"
+      align="center"
+      class="hidden-lg-and-up mt-4"
+      no-gutters
+    >
       <v-col cols="12" sm="8" md="6">
         <div class="text-h4 text-sm-h3 text-md-h2 text-center">
           <p class="my-0">{{ $store.state.business_info.vietnamese_name }}</p>
@@ -64,7 +69,7 @@
         </div>
       </v-col>
     </v-row>
-    <v-row justify="center" align="center">
+    <v-row justify="center" align="center" no-gutters>
       <v-col cols="12" sm="8" md="6">
         <v-card
           v-for="notice in notices"

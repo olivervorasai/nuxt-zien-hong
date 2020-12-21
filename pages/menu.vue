@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0 mt-12">
+  <v-container class="mt-12">
     <v-row justify="center">
       <v-btn-toggle v-model="toggle" class="button-group" tile dense mandatory>
         <v-btn :to="'/menu'" aria-label="Menu" exact nuxt> Menu </v-btn>
