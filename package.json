@@ -13,7 +13,7 @@
   "dependencies": {
     "@nuxtjs/strapi": "^0.1.7",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.14.12",
     "nuxt-magpie": "0.0.12"
   },
   "devDependencies": {
