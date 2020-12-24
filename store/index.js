@@ -1,6 +1,3 @@
-import MarkdownIt from 'markdown-it'
-const md = new MarkdownIt()
-
 export const state = () => ({
   business_info: null,
 })
@@ -18,17 +15,11 @@ export const mutations = {
     state.business_info = value
   },
   SET_NOTICES(state, value) {
-    value.forEach((notice) => {
-      notice.content = md.render(notice.content)
-    })
     value.sort((a, b) => b.id - a.id)
     state.notices = value
   },
   SET_CATEGORIES(state, value) {
     value.forEach((category) => {
-      if (category.description) {
-        category.description = md.render(category.description)
-      }
       category.menu_items.sort((a, b) =>
         a.name.localeCompare(b.name, undefined, { numeric: true })
       )

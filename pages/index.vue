@@ -79,7 +79,7 @@
           <v-card-title class="headline"> {{ notice.title }} </v-card-title>
           <!-- HTML comes from CMS that can only be edited by administrator -->
           <!-- eslint-disable-next-line -->
-          <v-card-text v-html="notice.content" />
+          <v-card-text v-html="notice.html" />
         </v-card>
       </v-col>
     </v-row>
