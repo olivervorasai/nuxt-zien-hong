@@ -88,58 +88,35 @@
         <h1>Order Online</h1>
       </v-col>
       <v-col cols="12" class="text-center">
-        <a
-          class="zoom ma-2"
-          href="https://www.doordash.com/business/140276/?utm_source=partner-link&utm_medium=website&utm_campaign=140276&utm_content=red-l"
-          target="_blank"
-          alt="Order Food Delivery with DoorDash"
-          title="Order Food Delivery with DoorDash"
-          style="text-decoration: none"
-          rel="noopener"
-          ><div
-            style="
-              position: relative;
-              width: 289px;
-              height: 59px;
-              margin: 0px auto;
-              overflow: hidden;
-              background-image: url(https://cdn.doordash.com/media/button/button_red_l.svg);
-              color: transparent;
-            "
-          >
-            Order Food Delivery with DoorDash
-          </div></a
-        >
+        <OnlineOrderingButton
+          href-link="https://www.doordash.com/business/140276/?utm_source=partner-link&utm_medium=website&utm_campaign=140276&utm_content=red-l"
+          img-link="https://cdn.doordash.com/media/button/button_red_l.svg"
+          img-height="59px"
+          img-width="289px"
+          img-alt-text="Order Food Delivery with DoorDash"
+          link-alt-text="Order Food Delivery with DoorDash"
+        />
       </v-col>
       <v-col cols="12" class="text-center">
-        <a
-          class="zoom ma-2"
-          href="https://postmates.com/merchant/zien-hong-portland"
-          target="_blank"
-          alt="Order Food Deliver with Postmates"
-          title="Order Food Deliver with Postmates"
-          rel="noopener"
-        >
-          <img
-            src="https://postmates.com/assets/badges/pm-black-order-2.png"
-            width="230px"
-            alt="Order delivery from Postmates"
-          />
-        </a>
+        <OnlineOrderingButton
+          href-link="https://postmates.com/merchant/zien-hong-portland"
+          img-link="https://postmates.com/assets/badges/pm-black-order-2.png"
+          img-height="61px"
+          img-width="230px"
+          img-alt-text="Order delivery from Postmates"
+          link-alt-text="Order Food Delivery with Postmates"
+        />
       </v-col>
       <v-col cols="12" class="text-center">
-        <a
-          class="zoom"
-          href="https://www.grubhub.com/restaurant/zien-hong-5314-ne-sandy-blvd-portland/1766742"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            src="https://grhb.me/3eElz4P"
-            alt="Order with Grubhub"
-            class="rounded-pill"
-          />
-        </a>
+        <OnlineOrderingButton
+          href-link="https://www.grubhub.com/restaurant/zien-hong-5314-ne-sandy-blvd-portland/1766742"
+          img-link="https://grhb.me/3eElz4P"
+          img-height="115px"
+          img-width="230px"
+          img-alt-text="Order with Grubhub"
+          img-classes="rounded-pill"
+          link-alt-text="Order Food Delivery with Grubhub"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -206,12 +183,5 @@ export default {
 <style scoped>
 .hero-box {
   background-color: rgba(255, 255, 255, 0.85);
-}
-.zoom {
-  display: inline-block;
-  transition: transform 0.2s;
-}
-.zoom:hover {
-  transform: scale(1.1);
 }
 </style>
