@@ -20,13 +20,7 @@
               <div>
                 <v-card-title class="headline text-subtitle-1 font-weight-bold"
                   >{{ item.name }}
-                  <v-icon
-                    v-if="item.spicy"
-                    color="red"
-                    class="item-spicy rounded"
-                    >{{ mdiChiliMild }}</v-icon
-                  ></v-card-title
-                >
+                </v-card-title>
                 <v-card-subtitle
                   class="py-0 other-lang-name"
                   v-text="
@@ -62,6 +56,21 @@
                   <span v-if="item.large_price">
                     / ${{ item.large_price.toFixed(2) }}
                   </span>
+                </span>
+              </div>
+              <div class="item-modifiers">
+                <v-icon
+                  v-if="item.spicy"
+                  color="red"
+                  class="item-spicy rounded"
+                >
+                  {{ mdiChiliMild }}
+                </v-icon>
+                <span
+                  v-if="item.gluten_free"
+                  class="item-gluten rounded white--text font-weight-bold"
+                >
+                  Gluten Free
                 </span>
               </div>
             </div>
@@ -128,13 +137,20 @@ export default {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.item-spicy {
+.item-modifiers {
   position: absolute;
   bottom: 16px;
   right: 16px;
   z-index: 1;
   pointer-events: none;
-  background-color: rgba(255, 255, 255, 1);
+  .item-gluten {
+    background-color: rgba(76, 175, 80, 1);
+    padding: 0.25em;
+  }
+
+  .item-spicy {
+    background-color: rgba(255, 255, 255, 1);
+  }
 }
 
 .item-description {
