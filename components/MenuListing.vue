@@ -5,7 +5,7 @@
       <h1 class="text-center">{{ category.name }}</h1>
       <!-- HTML comes from CMS that can only be edited by administrator -->
       <!-- eslint-disable-next-line -->
-      <div class="mb-2" align="center" v-html="category.description"></div>
+      <div class="mb-2" align="center" v-html="category.html"></div>
       <v-row dense>
         <v-col
           v-for="item in category.menu_items"
