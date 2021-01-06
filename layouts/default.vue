@@ -117,6 +117,7 @@
         <nuxt />
       </v-container>
     </v-main>
+    <CompanyFooter :links="items" />
   </v-app>
 </template>
 
