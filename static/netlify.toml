@@ -22,3 +22,8 @@
   from = "/Zien_Hong_Menu.pdf"
   to = "/menu"
   status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 301

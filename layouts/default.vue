@@ -127,7 +127,7 @@ import {
   mdiNoodles,
   mdiMap,
   mdiMenu,
-  mdiEmail,
+  // mdiEmail,
   mdiChevronDown,
 } from '@mdi/js'
 
@@ -153,11 +153,13 @@ export default {
           title: 'Location',
           to: '/location',
         },
+        /*
         {
           icon: mdiEmail,
           title: 'Contact',
           to: '/contact',
         },
+        */
       ],
       mdiMenu,
       mdiChevronDown,
