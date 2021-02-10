@@ -100,6 +100,10 @@ export default {
     },
   },
 
+  generate: {
+    exclude: ['/contact'],
+  },
+
   env: {
     strapiBaseUri,
   },
