@@ -37,6 +37,7 @@
           href="https://blossomwebdesigns.com/"
           rel="noopener"
           target="_blank"
+          aria-label="Link to website designer"
           class="designer-link"
         >
           Designed by Blossom Web Designs
