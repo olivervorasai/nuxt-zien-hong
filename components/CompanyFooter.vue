@@ -32,6 +32,17 @@
       <v-col class="py-4 text-center white--text" cols="12">
         {{ new Date().getFullYear() }} — <strong>Zien Hong Restaurant</strong>
       </v-col>
+      <v-col class="text-center white--text" cols="12">
+        <a
+          href="https://blossomwebdesigns.com/"
+          rel="noopener"
+          target="_blank"
+          aria-label="Link to website designer"
+          class="designer-link"
+        >
+          Designed by Blossom Web Designs
+        </a>
+      </v-col>
     </v-row>
   </v-footer>
 </template>
@@ -49,3 +60,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.designer-link {
+  color: white;
+  text-decoration: none;
+}
+</style>
