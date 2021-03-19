@@ -73,13 +73,13 @@
       <v-col cols="12" sm="8" md="6">
         <v-card
           v-for="notice in notices"
-          :key="notice.id"
+          :key="notice.slug"
           class="mb-12 mt-lg-12"
         >
           <v-card-title class="headline"> {{ notice.title }} </v-card-title>
-          <!-- HTML comes from CMS that can only be edited by administrator -->
-          <!-- eslint-disable-next-line -->
-          <v-card-text v-html="notice.html" />
+          <v-card-text>
+            <nuxt-content :document="notice" />
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -124,9 +124,13 @@
 
 <script>
 export default {
+  async asyncData({ $content }) {
+    const notices = await $content('notice').sortBy('createdAt', 'desc').fetch()
+
+    return { notices }
+  },
   data() {
     return {
-      notices: this.$store.state.notices,
       structureData: {
         '@context': 'https://schema.org/',
         '@type': 'Restaurant',

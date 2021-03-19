@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'notice'
+    label: 'Notice'
+    folder: 'content/notice'
+    format: 'frontmatter'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'category'
+    label: 'Category'
+    folder: 'content/category'
+    format: 'frontmatter'
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'markdown', required: false }
+      - {
+          label: 'Items',
+          name: 'items',
+          widget: 'relation',
+          displayFields: ['name'],
+          searchFields: ['name'],
+          valueField: 'name',
+          collection: 'item',
+        }
+
+  - name: 'item'
+    label: 'Item'
+    folder: 'content/item'
+    format: 'frontmatter'
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Chinese Name', name: 'chineseName', widget: 'string' }
+      - { label: 'Vietnamese Name', name: 'vietnameseName', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string', required: false }
+      - {
+          label: 'Base Price',
+          name: 'basePrice',
+          widget: 'number',
+          value_type: 'float',
+          default: 0,
+        }
+      - {
+          label: 'Large Price',
+          name: 'largePrice',
+          widget: 'number',
+          value_type: 'float',
+          default: 0,
+        }
+      - {
+          label: 'Special Price',
+          name: 'specialPrice',
+          widget: 'number',
+          value_type: 'float',
+          default: 0,
+        }
+      - { label: 'Spicy', name: 'spicy', widget: 'boolean', default: false }
+      - {
+          label: 'Gluten Free',
+          name: 'glutenFree',
+          widget: 'boolean',
+          default: false,
+        }
+      - { label: 'Image', name: 'image', widget: 'image' }
