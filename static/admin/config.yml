@@ -31,11 +31,17 @@ collections:
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'markdown', required: false }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'markdown',
+          required: false,
+        }
       - {
           label: 'Items',
           name: 'items',
           widget: 'relation',
+          multiple: true,
           displayFields: ['name'],
           searchFields: ['name'],
           valueField: 'name',
@@ -54,7 +60,12 @@ collections:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Chinese Name', name: 'chineseName', widget: 'string' }
       - { label: 'Vietnamese Name', name: 'vietnameseName', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'string', required: false }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          required: false,
+        }
       - {
           label: 'Base Price',
           name: 'basePrice',
@@ -83,4 +94,4 @@ collections:
           widget: 'boolean',
           default: false,
         }
-      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
