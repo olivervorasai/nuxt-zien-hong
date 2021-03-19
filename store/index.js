@@ -14,10 +14,6 @@ export const mutations = {
     }
     state.business_info = value
   },
-  SET_NOTICES(state, value) {
-    value.sort((a, b) => b.id - a.id)
-    state.notices = value
-  },
   SET_CATEGORIES(state, value) {
     value.forEach((category) => {
       category.menu_items.sort((a, b) =>
@@ -41,9 +37,6 @@ export const actions = {
   async nuxtServerInit({ commit }, context) {
     const body = await context.$strapi.find('business-info')
     commit('SET_BUSINESS_INFO', body)
-
-    const notices = await context.$strapi.find('notices')
-    commit('SET_NOTICES', notices)
 
     const categories = await context.$strapi.find('categories')
     commit('SET_CATEGORIES', categories)
