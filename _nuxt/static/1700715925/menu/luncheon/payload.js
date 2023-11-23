@@ -1,0 +1,1 @@
+__NUXT_JSONP__("\u002Fmenu\u002Fluncheon", {data:[{},{}],fetch:{},mutations:[]});
