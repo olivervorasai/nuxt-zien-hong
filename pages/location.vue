@@ -9,6 +9,7 @@
         {{ $store.state.business_info.open_hour }} -
         {{ $store.state.business_info.close_hour }}
       </p>
+      <p class="my-0 text-h6">Dine-in until 10 PM</p>
       <p class="my-0 mt-6 font-weight-bold text-h5">
         <a
           href="https://goo.gl/maps/rEanfSNmhZtGz42J9"

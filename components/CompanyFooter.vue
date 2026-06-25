@@ -29,10 +29,13 @@
         {{ $store.state.business_info.open_hour }} -
         {{ $store.state.business_info.close_hour }}
       </v-col>
+      <v-col class="text-center white--text" cols="12"
+        >Dine-in until 10 PM</v-col
+      >
       <v-col class="py-4 text-center white--text" cols="12">
         {{ new Date().getFullYear() }} — <strong>Zien Hong Restaurant</strong>
       </v-col>
-      <v-col class="text-center white--text" cols="12">
+      <!-- <v-col class="text-center white--text" cols="12">
         <a
           href="https://blossomwebdesigns.com/"
           rel="noopener"
@@ -42,7 +45,7 @@
         >
           Designed by Blossom Web Designs
         </a>
-      </v-col>
+      </v-col> -->
     </v-row>
   </v-footer>
 </template>

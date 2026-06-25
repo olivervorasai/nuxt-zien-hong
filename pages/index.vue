@@ -37,6 +37,7 @@
                   {{ $store.state.business_info.open_hour }} -
                   {{ $store.state.business_info.close_hour }}
                 </p>
+                <p class="my-0">Dine-in until 10 PM</p>
               </div>
             </v-col>
           </v-row>
@@ -66,6 +67,7 @@
             {{ $store.state.business_info.open_hour }} -
             {{ $store.state.business_info.close_hour }}
           </p>
+          <p class="my-0">Dine-in until 10 PM</p>
         </div>
       </v-col>
     </v-row>
@@ -89,7 +91,7 @@
       </v-col>
       <v-col cols="12" class="text-center">
         <OnlineOrderingButton
-          href-link="https://www.doordash.com/business/140276/?utm_source=partner-link&utm_medium=website&utm_campaign=140276&utm_content=red-l"
+          href-link="https://order.online/business/zien-hong-140276"
           img-link="https://cdn.doordash.com/media/button/button_red_l.svg"
           img-height="59px"
           img-width="289px"
