@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/menu_1.html"
+  to = "/menu"
+  status = 301
+
+[[redirects]]
+  from = "/menu_2.html"
+  to = "/menu"
+  status = 301
+
+[[redirects]]
+  from = "/menu_3.html"
+  to = "/menu"
+  status = 301
+
+[[redirects]]
+  from = "/menu_4.html"
+  to = "/menu"
+  status = 301
+
+[[redirects]]
+  from = "/Zien_Hong_Menu.pdf"
+  to = "/menu"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 301
