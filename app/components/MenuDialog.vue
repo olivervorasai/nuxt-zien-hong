@@ -41,7 +41,7 @@ onUnmounted(() => {
             <img
                 class="thumb"
                 :srcset="srcset"
-                sizes="(max-width: 1000px) 480px, 800px, 1000px"
+                sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1000px"
                 :src="item.image.formats.small?.url"
                 :alt="item.name"
                 loading="lazy"
@@ -58,7 +58,7 @@ onUnmounted(() => {
                         <img
                             class="dialog-img"
                             :srcset="srcset"
-                            sizes="(max-width: 1000px) 480px, 800px, 1000px"
+                            sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1000px"
                             :src="item.image.formats.small?.url"
                             :alt="item.name"
                         />
