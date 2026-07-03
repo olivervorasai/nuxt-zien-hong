@@ -1,0 +1,15 @@
+# Build / dependency output
+.output
+.nuxt
+.nitro
+.cache
+dist
+node_modules
+
+# Generated content & binary assets
+app/data
+public
+
+# npm-managed files (npm enforces its own 2-space formatting)
+package.json
+package-lock.json

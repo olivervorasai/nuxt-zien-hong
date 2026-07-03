@@ -1,0 +1,26 @@
+[
+  {
+    "id": 16,
+    "active": true,
+    "title": "July 4th Closure",
+    "html": "<p>We are closed from July 4th to July 11th.</p>\n<p>We will open again on July 12th at 3pm.</p>\n<p>Thank you for your continued patronage.</p>\n<p>— <em>Zien Hong Management</em></p>\n"
+  },
+  {
+    "id": 18,
+    "active": false,
+    "title": "Reservations Notice",
+    "html": "<p>Reservations are accepted only on days that are not holidays.</p>\n<p>Thank you for your continued patronage.</p>\n<p>— <em>Zien Hong Management</em></p>\n"
+  },
+  {
+    "id": 19,
+    "active": false,
+    "title": "Closed For Thanksgiving",
+    "html": "<p>We are closed all day Nov 27, 2025.</p>\n<p>Best regards,</p>\n<p>— <em>Zien Hong Management</em></p>\n"
+  },
+  {
+    "id": 20,
+    "active": false,
+    "title": "Holidays 2025",
+    "html": "<p>We are open on Christmas Eve and Christmas Day from 12pm to 10pm.</p>\n<p>We are open on New Years Eve and New Years Day from 12pm to 10pm.</p>\n<p>We are not accepting reservations for these days.</p>\n<p>Thank you for your continued patronage.</p>\n<p>— <em>Zien Hong Management</em></p>\n"
+  }
+]
