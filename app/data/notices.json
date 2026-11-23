@@ -1,7 +1,7 @@
 [
   {
     "id": 16,
-    "active": true,
+    "active": false,
     "title": "July 4th Closure",
     "html": "<p>We are closed from July 4th to July 11th.</p>\n<p>We will open again on July 12th at 3pm.</p>\n<p>Thank you for your continued patronage.</p>\n<p>— <em>Zien Hong Management</em></p>\n"
   },
@@ -13,9 +13,9 @@
   },
   {
     "id": 19,
-    "active": false,
+    "active": true,
     "title": "Closed For Thanksgiving",
-    "html": "<p>We are closed all day Nov 27, 2025.</p>\n<p>Best regards,</p>\n<p>— <em>Zien Hong Management</em></p>\n"
+    "html": "<p>We are closed all day Nov 26, 2026.</p>\n<p>Best regards,</p>\n<p>— <em>Zien Hong Management</em></p>\n"
   },
   {
     "id": 20,
